@@ -5,6 +5,10 @@ import authRoutes from './routes/api/auth.js';
 import memoirRoutes from './routes/api/memoir.js';
 import preInterviewRoutes from './routes/api/preInterview.js';
 import conversationRoutes from './routes/api/conversation.js';
+import dotenv from 'dotenv';
+
+// Load environment variables from .env file (optional in development)
+dotenv.config();
 
 const app = express();
 
@@ -16,10 +20,10 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/memoir', memoirRoutes);
 app.use('/api/pre-interview', preInterviewRoutes);
-app.use('/api/conversation', conversationRoutes); 
+app.use('/api/conversation', conversationRoutes);
 
-
-sequelize.sync({ force: false }) 
+// Sync Sequelize with database
+sequelize.sync({ force: false })
   .then(() => {
     console.log('Database synced successfully');
   })
@@ -27,7 +31,7 @@ sequelize.sync({ force: false })
     console.error('Error syncing the database:', error);
   });
 
-// Start the server
+// Use the environment variable PORT or default to 5000
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
