@@ -1,5 +1,5 @@
-import PreInterview from '../models/PreInterview.js';
-import User from '../models/User.js'; // Assuming you have a User model for associating pre-interviews with users
+import PreInterview from '../models/preInterview.js';
+
 
 // Handle saving the pre-interview data
 export const savePreInterview = async (req, res) => {
