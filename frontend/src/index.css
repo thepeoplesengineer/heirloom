@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom font styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
+.custom-font {
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px; /* Adjust letter spacing */
+  /* You don't need to set font-size globally here; instead use Tailwind's text-lg, text-sm, etc. */
+}
+
+/* Remove unnecessary global overrides */
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: rgb(241, 227, 188);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make sure Tailwind takes priority for links */
+a {
+  text-decoration: none;
+}
+
+/* Buttons can be controlled by Tailwind’s classes */
+button {
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
