@@ -9,7 +9,7 @@ interface LoginCredentials {
     password: string;
   }
   
-  const API_URL = 'http://localhost:5000/api/auth';
+  const API_URL = import.meta.env.VITE_API_URL;
   
   export const loginUser = async (credentials: LoginCredentials) => {
     const response = await fetch(`${API_URL}/login`, {

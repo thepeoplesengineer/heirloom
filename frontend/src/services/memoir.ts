@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000/api/memoir'; // Make sure this URL is correct
+const API_URL = import.meta.env.VITE_API_URL; // Make sure this URL is correct
 
 interface MemoirData {
   title: string;
