@@ -11,7 +11,7 @@ const MainLayout = () => {
 
   return (
     <div className="relative min-h-screen flex flex-col justify-between">
-      {/* Conditionally render Header */}
+      
       {!isLandingPage && <Header />}
 
       {/* Main content */}
