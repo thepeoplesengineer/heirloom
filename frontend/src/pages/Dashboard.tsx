@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchMemoirs } from '../services/memoir'; // Assuming this fetches memoirs
+// import { fetchMemoirs } from '../services/memoir'; // Comment this out since we're not fetching memoirs for now
 
 interface Memoir {
   id: number;
@@ -8,29 +8,30 @@ interface Memoir {
 }
 
 const Dashboard = () => {
-  const [memoirs, setMemoirs] = useState<Memoir[]>([]);
+  const [memoirs, setMemoirs] = useState<Memoir[]>([]); // Memoir state is still here for future use
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const getMemoirs = async () => {
-      try {
-        const data = await fetchMemoirs(); // Fetch memoir data
-        setMemoirs(data);
-      } catch (err) {
-        if (err instanceof Error) {
-          if (err.message.includes('401')) {
-            setError('Logged out due to inactivity. Please login again.');
-          } else {
-            setError('Failed to load memoirs.');
-          }
-        } else {
-          setError('An unknown error occurred.');
-        }
-      }
-    };
+    // Commenting out memoir fetching logic for now
+    // const getMemoirs = async () => {
+    //   try {
+    //     const data = await fetchMemoirs(); // Fetch memoir data
+    //     setMemoirs(data);
+    //   } catch (err) {
+    //     if (err instanceof Error) {
+    //       if (err.message.includes('401')) {
+    //         setError('Logged out due to inactivity. Please login again.');
+    //       } else {
+    //         setError('Failed to load memoirs.');
+    //       }
+    //     } else {
+    //       setError('An unknown error occurred.');
+    //     }
+    //   }
+    // };
 
-    getMemoirs();
+    // getMemoirs(); // Don't fetch memoirs for now
   }, []);
 
   const handleLoginRedirect = () => {
@@ -76,7 +77,8 @@ const Dashboard = () => {
             <>
               <h2 className="text-3xl font-bold custom-font mb-6">Dashboard</h2>
 
-              <ul className="mb-10 text-center text-lg text-white">
+              {/* Memoir list temporarily removed */}
+              {/* <ul className="mb-10 text-center text-lg text-white">
                 {memoirs.length > 0 ? (
                   memoirs.map((memoir) => (
                     <li key={memoir.id} className="py-2">{memoir.title}</li>
@@ -84,7 +86,7 @@ const Dashboard = () => {
                 ) : (
                   <p>Your latest entry will be listed here</p>
                 )}
-              </ul>
+              </ul> */}
 
               {/* Stack the buttons in a column */}
               <div className="flex flex-col space-y-4 text-center">
@@ -128,15 +130,12 @@ const Dashboard = () => {
           )}
         </div>
       </div>
-
-      
-
-  
     </div>
   );
 };
 
 export default Dashboard;
+
 
 
 

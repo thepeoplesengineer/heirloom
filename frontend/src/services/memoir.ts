@@ -1,21 +1,22 @@
+const MEMOIR_API_URL = `${import.meta.env.VITE_API_URL}/memoir`; // Make sure this URL is correct
 
-
-const API_URL = import.meta.env.VITE_API_URL; // Make sure this URL is correct
+// Define Memoir and MemoirData types
+interface Memoir {
+  id: number;
+  title: string;
+  content: string;
+}
 
 interface MemoirData {
   title: string;
   content: string;
 }
 
-interface Memoir {
-  id: number;
-  title: string;
-}
-
+// Fetch memoirs
 export const fetchMemoirs = async (): Promise<Memoir[]> => {
   const token = localStorage.getItem('token'); // Get the token from localStorage
 
-  const response = await fetch(`${API_URL}/view`, {
+  const response = await fetch(`${MEMOIR_API_URL}/view`, {
     method: 'GET',
     headers: {
       'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
@@ -27,20 +28,20 @@ export const fetchMemoirs = async (): Promise<Memoir[]> => {
   }
 
   const data = await response.json();
-  
-  return data; 
+  return data;
 };
 
+// Create memoir
 export const createMemoir = async (memoirData: MemoirData) => {
   const token = localStorage.getItem('token'); // Get the token from localStorage
 
-  const response = await fetch(`${API_URL}/create`, {
+  const response = await fetch(`${MEMOIR_API_URL}/create`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`, // Include the token in the Authorization header
     },
-    body: JSON.stringify(memoirData), 
+    body: JSON.stringify(memoirData),
   });
 
   if (!response.ok) {

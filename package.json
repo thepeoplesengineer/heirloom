@@ -4,9 +4,9 @@
   "description": "Heirloom Fullstack App",
   "scripts": {
     "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
-    "start-server": "npm --prefix server start",
-    "start-client": "npm --prefix frontend run dev",
-    "build": "npm --prefix frontend run build"
+    "start-server": "npm --prefix ./server start",
+    "start-client": "npm --prefix ./frontend run dev",
+    "build": "npm --prefix frontend run build && npm --prefix server run build"
   },
   "dependencies": {
     "concurrently": "^9.0.1",

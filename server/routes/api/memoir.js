@@ -1,5 +1,3 @@
-
-
 import express from 'express';
 import authenticateToken from '../../middleware/auth.js';
 
@@ -33,7 +31,8 @@ router.post('/create', authenticateToken, (req, res) => {
 
 // Memoir viewing route (protected)
 router.get('/view', authenticateToken, (req, res) => {
-  res.json(memoirs); // Return all memoirs
+  const userMemoirs = memoirs.filter(memoir => memoir.userId === req.user.id); // Return memoirs of the logged-in user
+  res.json(userMemoirs); // Return memoirs for the authenticated user
 });
 
 export default router;

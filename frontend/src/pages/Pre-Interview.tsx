@@ -25,7 +25,7 @@ const PreInterview = () => {
     const token = localStorage.getItem('token'); // Ensure token is present
 
     try {
-      const response = await fetch('http://localhost:5000/api/pre-interview', {
+      const response = await fetch('http://localhost:3001/api/pre-interview', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const PreInterview = () => {
       }
 
       // Handle success (navigate to another page, show a success message, etc.)
-      navigate('/landing');
+      navigate('/dashboard');
     } catch (error: any) {
       console.error('Error:', error.message);
       setError(error.message); // Show error message to user

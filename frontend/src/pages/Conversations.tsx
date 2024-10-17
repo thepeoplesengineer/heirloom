@@ -14,7 +14,7 @@ const Chat = () => {
     const token = localStorage.getItem('token'); // Retrieve the token from localStorage
 
     try {
-      const response = await fetch('http://localhost:5000/api/conversation/start', {
+      const response = await fetch('http://localhost:3001/api/conversation/start', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

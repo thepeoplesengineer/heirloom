@@ -1,6 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
+import backgroundImage from '../src/assets/InternalLandingBG.svg';
 
 const MainLayout = () => {
   const location = useLocation();
@@ -26,20 +27,18 @@ const MainLayout = () => {
       {/* Background image positioned under the header */}
       {!isLandingPage && (
         <div
-          className="absolute inset-0 -z-10 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/InternalLandingBG.svg')",
-            backgroundPosition: 'top',
-            backgroundSize: 'cover',
-            top: '75px',  
-            minHeight: '100vh',  // Removed fixed height, let it scale based on content
-          }}
-        ></div>
+        className="absolute inset-0 -z-10 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'top',
+          backgroundSize: 'cover',
+          top: '75px',
+          minHeight: '200vh',
+        }}
+      ></div>
       )}
     </div>
   );
 };
 
 export default MainLayout;
-
-
