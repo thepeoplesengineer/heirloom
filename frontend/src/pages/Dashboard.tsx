@@ -61,24 +61,23 @@ const Dashboard = () => {
   return (
     <div className="relative min-h-screen flex flex-col justify-between">
       <div className="relative z-10 flex-grow">
-        <div className="bg-black bg-opacity-50 p-4 flex flex-col items-center justify-center min-h-screen">
-
+        <div className="bg-[#3b2b29] bg-opacity-70 p-8 flex flex-col items-center justify-center min-h-screen">
           {error ? (
             <div className="text-center">
               <p className="text-red-500 text-lg">{error}</p>
               <button
                 onClick={handleLoginRedirect}
-                className="mt-4 px-6 py-3 bg-blue-600 text-white text-lg rounded hover:bg-blue-700"
+                className="mt-4 px-6 py-3 bg-blue-600 text-white text-lg rounded hover:bg-blue-700 transition"
               >
                 Go to Login
               </button>
             </div>
           ) : (
             <>
-              <h2 className="text-3xl font-bold custom-font mb-6">Dashboard</h2>
+              <h2 className="text-3xl font-bold custom-font text-eggshell mb-8">Dashboard</h2>
 
               {/* Memoir list temporarily removed */}
-              {/* <ul className="mb-10 text-center text-lg text-white">
+              {/* <ul className="mb-10 text-center text-lg text-eggshell">
                 {memoirs.length > 0 ? (
                   memoirs.map((memoir) => (
                     <li key={memoir.id} className="py-2">{memoir.title}</li>
@@ -89,7 +88,7 @@ const Dashboard = () => {
               </ul> */}
 
               {/* Stack the buttons in a column */}
-              <div className="flex flex-col space-y-4 text-center">
+              <div className="flex flex-col space-y-6 text-center">
                 <button
                   onClick={handlePreInterview}
                   className="text-lg md:text-xl custom-font text-eggshell border border-eggshell px-6 py-4 rounded-lg hover:bg-eggshell hover:text-black transition"
@@ -135,10 +134,6 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
-
-
 
 
 

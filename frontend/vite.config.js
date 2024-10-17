@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  assetsInclude: ['**/*.svg'], // Ensures Vite includes SVG files as assets
+
   base: '/', // Ensures assets are served correctly (you can adjust this if needed)
   build: {
     outDir: 'dist', // This is where the build will go, should be 'dist' which your backend serves

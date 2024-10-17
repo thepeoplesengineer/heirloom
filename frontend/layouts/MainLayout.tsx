@@ -1,7 +1,7 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
-import backgroundImage from '../src/assets/InternalLandingBG.svg';
+import backgroundImage from '../public/InternalLandingBG.svg'; // Adjust the path to your SVG file
 
 const MainLayout = () => {
   const location = useLocation();
@@ -15,7 +15,15 @@ const MainLayout = () => {
       {!isLandingPage && <Header />}
 
       {/* Main content */}
-      <div className="relative z-10 flex-grow">
+      <div
+        className="relative flex-grow bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'top',
+          backgroundSize: 'cover',
+          paddingTop: '75px', // Adjust based on the height of your header
+        }}
+      >
         <main className="flex-grow container mx-auto p-0 min-h-screen">
           <Outlet /> {/* This is where the child routes will render */}
         </main>
@@ -23,23 +31,8 @@ const MainLayout = () => {
 
       {/* Conditionally render Footer */}
       {!isLandingPage && <Footer />}
-
-      {/* Background image positioned under the header */}
-      {!isLandingPage && (
-        <div
-          className="absolute inset-0 -z-10 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-            backgroundPosition: 'top',
-            backgroundSize: 'cover',
-            top: '75px',
-            minHeight: '150vh',
-          }}
-        ></div>
-      )}
     </div>
   );
 };
 
 export default MainLayout;
-

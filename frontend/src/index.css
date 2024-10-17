@@ -10,28 +10,28 @@
 .custom-font {
   font-family: 'Playfair Display', serif;
   letter-spacing: 1px; /* Adjust letter spacing */
-  /* You don't need to set font-size globally here; instead use Tailwind's text-lg, text-sm, etc. */
+  
 }
 
-/* Remove unnecessary global overrides */
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   color-scheme: light dark;
-  background-color: rgb(241, 227, 188);
+  background-color: rgba(243, 208, 138, 0.977);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Make sure Tailwind takes priority for links */
+
 a {
   text-decoration: none;
 }
 
-/* Buttons can be controlled by Tailwind’s classes */
+
 button {
   transition: border-color 0.25s;
 }
