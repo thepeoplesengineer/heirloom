@@ -27,18 +27,19 @@ const MainLayout = () => {
       {/* Background image positioned under the header */}
       {!isLandingPage && (
         <div
-        className="absolute inset-0 -z-10 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundPosition: 'top',
-          backgroundSize: 'cover',
-          top: '75px',
-          minHeight: '200vh',
-        }}
-      ></div>
+          className="absolute inset-0 -z-10 bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundPosition: 'top',
+            backgroundSize: 'cover',
+            top: '75px',
+            minHeight: '150vh',
+          }}
+        ></div>
       )}
     </div>
   );
 };
 
 export default MainLayout;
+
